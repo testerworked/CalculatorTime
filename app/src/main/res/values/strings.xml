@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CalculatorTime</string>
+    <string name="result">Результат</string>
+</resources>
