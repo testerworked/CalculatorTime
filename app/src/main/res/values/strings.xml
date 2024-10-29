@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">CalculatorTime</string>
     <string name="result">Результат</string>
+    <string name="toolbarHead">Калькулятор времени</string>
 </resources>
