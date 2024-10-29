@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -13,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
+    private lateinit var toolbarFor: Toolbar
     private lateinit var firstTimeET: EditText
     private lateinit var secondTimeET: EditText
     private lateinit var resultText: TextView
@@ -29,11 +31,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+        toolbarFor = findViewById(R.id.toolbarMain)
+        setSupportActionBar(toolbarFor)
+        title = "Калькулятор"
+        toolbarFor.subtitle = "Версия 1.2.1"
+        toolbarFor.setLogo(R.drawable.baseline_coffee_24)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
 
         firstTimeET = findViewById(R.id.editTextText)
         secondTimeET = findViewById(R.id.editTextText2)
