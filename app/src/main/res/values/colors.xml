@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="backToolbar">#006400</color>
     <color name="greenColor">#008000</color>
+    <color name="textResultColor">#8B0000</color>
 </resources>

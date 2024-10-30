@@ -2,6 +2,7 @@ package com.android.calculatortime
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         firstTimeET = findViewById(R.id.editTextText)
         secondTimeET = findViewById(R.id.editTextText2)
         resultText = findViewById(R.id.resultText)
+        resultText.setTextColor(ContextCompat.getColor(this, R.color.black))
 
         sumBTN.setBackgroundColor(ContextCompat.getColor(this, R.color.greenColor))
         difBTN.setBackgroundColor(ContextCompat.getColor(this, R.color.greenColor))
@@ -63,7 +65,30 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         return true
     }
 
-
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.resetMenuMain -> {
+                firstTimeET.text.clear()
+                secondTimeET.text.clear()
+                resultText.setTextColor(ContextCompat.getColor(this, R.color.black))
+                resultText.text = "Результат"
+                Toast.makeText(
+                    applicationContext,
+                    "Данные очищены",
+                    Toast.LENGTH_LONG
+                    ).show()
+            }
+            R.id.exitMenuMain -> {
+                Toast.makeText(
+                    applicationContext,
+                    "Работа завершена",
+                    Toast.LENGTH_LONG
+                ).show()
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     override fun onClick(v: View?) {
 
@@ -72,14 +97,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         try {
             when(v?.id){
                 R.id.buttonSum -> {
-                    Toast.makeText(this, "Проверка: $first и $second", Toast.LENGTH_SHORT).show()
-                    resultText.text = Operation(first, second).sum()
+                    val resultSum = Operation(first, second).sum()
+                    resultText.setTextColor(ContextCompat.getColor(this, R.color.textResultColor))
+                    resultText.text = resultSum
+                    Toast.makeText(this, "Результат: $resultSum", Toast.LENGTH_SHORT).show()
                 }
                 R.id.buttonDif -> {
-                    Toast.makeText(this, "Проверка: $first и $second", Toast.LENGTH_SHORT).show()
-                    resultText.text = Operation(first, second).dif()
+                    val resultDif = Operation(first, second).dif()
+                    resultText.setTextColor(ContextCompat.getColor(this, R.color.textResultColor))
+                    resultText.text = resultDif
+                    Toast.makeText(this, "Результат: $resultDif", Toast.LENGTH_SHORT).show()
                 }
                 else -> {
+                    resultText.setTextColor(ContextCompat.getColor(this, R.color.textResultColor))
                     resultText.text = "Результат обновлен"
                 }
             }
