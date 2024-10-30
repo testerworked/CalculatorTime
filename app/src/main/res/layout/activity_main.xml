@@ -29,9 +29,10 @@
 
     <EditText
         android:id="@+id/editTextText"
-        android:layout_width="169dp"
-        android:layout_height="53dp"
-        android:layout_margin="80dp"
+        android:layout_width="111dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="40dp"
         android:ems="10"
         android:inputType="text"
         android:text="1h"
@@ -40,13 +41,15 @@
 
     <EditText
         android:id="@+id/editTextText2"
-        android:layout_width="169dp"
-        android:layout_height="53dp"
-        android:layout_margin="80dp"
+        android:layout_width="105dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="30dp"
         android:ems="10"
         android:inputType="text"
         android:text="2h"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.832"
         app:layout_constraintStart_toEndOf="@+id/editTextText"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -2,4 +2,6 @@
     <string name="app_name">CalculatorTime</string>
     <string name="result">Результат</string>
     <string name="toolbarHead">Калькулятор времени</string>
+    <string name="reset">Reset</string>
+    <string name="exit">Exit</string>
 </resources>

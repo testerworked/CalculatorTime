@@ -1,6 +1,7 @@
 package com.android.calculatortime
 
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -48,8 +50,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         secondTimeET = findViewById(R.id.editTextText2)
         resultText = findViewById(R.id.resultText)
 
+        sumBTN.setBackgroundColor(ContextCompat.getColor(this, R.color.greenColor))
+        difBTN.setBackgroundColor(ContextCompat.getColor(this, R.color.greenColor))
+
+
         this.sumBTN.setOnClickListener(this)
         this.difBTN.setOnClickListener(this)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
     }
 
 
